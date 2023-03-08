@@ -3,12 +3,14 @@ package com.example.superherov4.repository;
 import com.example.superherov4.SuperheroV4Application;
 import com.example.superherov4.dto.CityHeroDTO;
 import com.example.superherov4.dto.GetHeroNameDTO;
+import com.example.superherov4.dto.SuperheroNameCityDTO;
 import com.example.superherov4.model.Superhero;
 import org.springframework.beans.factory.annotation.Value;
 import org.springframework.stereotype.Repository;
 
 import java.sql.*;
 import java.util.ArrayList;
+import java.util.Collections;
 import java.util.List;
 
 @Repository

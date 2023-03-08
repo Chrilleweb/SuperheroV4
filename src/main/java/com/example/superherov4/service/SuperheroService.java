@@ -2,6 +2,7 @@ package com.example.superherov4.service;
 
 import com.example.superherov4.dto.CityHeroDTO;
 import com.example.superherov4.dto.GetHeroNameDTO;
+import com.example.superherov4.dto.SuperheroNameCityDTO;
 import com.example.superherov4.model.Superhero;
 import com.example.superherov4.repository.SuperheroRepository;
 import org.springframework.stereotype.Service;
