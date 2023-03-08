@@ -65,7 +65,7 @@ public class SuperheroController {
         return new ResponseEntity<GetHeroNameDTO>(getHeroNameDTOList, HttpStatus.OK);
     }
 
-    //printer superhelten ud med herName og superpowerName
+    //printer superhelten ud med heroName og superpowerName
     @GetMapping(path = "power/{name}") //localhost:8083/kea/power/name
     public ResponseEntity<PowerNameDTO> getPowerByName(@PathVariable String name) {
         PowerNameDTO powerNameDTO = superheroService.getPowerByName(name);

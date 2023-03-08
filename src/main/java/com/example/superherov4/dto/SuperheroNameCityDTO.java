@@ -14,5 +14,19 @@ public class SuperheroNameCityDTO {
         this.hero = hero;
     }
 
+    public String getCityName() {
+        return cityName;
+    }
 
+    public void setCityName(String cityName) {
+        this.cityName = cityName;
+    }
+
+    public List<GetHeroNameDTO> getHero() {
+        return hero;
+    }
+
+    public void setHero(List<GetHeroNameDTO> hero) {
+        this.hero = hero;
+    }
 }
