@@ -3,6 +3,7 @@ package com.example.superherov4.repository;
 import com.example.superherov4.SuperheroV4Application;
 import com.example.superherov4.dto.CityHeroDTO;
 import com.example.superherov4.dto.GetHeroNameDTO;
+import com.example.superherov4.dto.PowerNameDTO;
 import com.example.superherov4.dto.SuperheroNameCityDTO;
 import com.example.superherov4.model.Superhero;
 import org.springframework.beans.factory.annotation.Value;
@@ -110,6 +111,24 @@ public class SuperheroRepository {
                 String heroName = rs.getString("heroName");
                 String cityName = rs.getString("cityName");
                 superhero1 = (new CityHeroDTO(heroName, cityName));
+            }
+            return superhero1;
+        } catch (SQLException e) {
+            throw new RuntimeException(e);
+        }
+    }
+
+    public PowerNameDTO getPowerByName(String superhero) {
+        PowerNameDTO superhero1 = null;
+        try (Connection con = DriverManager.getConnection("jdbc:mysql://localhost:3306/superhelte", "superhelteDB", "1234")) {
+            String SQL = "SELECT heroName, superpowerName FROM superhero WHERE heroName =?;";
+            PreparedStatement pstmt = con.prepareStatement(SQL);
+            pstmt.setString(1, superhero);
+            ResultSet rs = pstmt.executeQuery();
+            while (rs.next()) {
+                String heroName = rs.getString("heroName");
+                String superpowerName = rs.getString("superpowerName");
+                superhero1 = (new PowerNameDTO(heroName, superpowerName));
             }
             return superhero1;
         } catch (SQLException e) {
