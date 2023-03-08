@@ -24,6 +24,9 @@ public class SuperheroService {
     public List<CityHeroDTO> getNameAndCity(){
         return repository.getSuperheroNameAndCity();
     }
+    public CityHeroDTO getCityByName(String superheroName){
+        return repository.getCityByName(superheroName);
+    }
 
     public List<GetHeroNameDTO> getNameRealCreation(){
         return repository.getNameRealCreation();

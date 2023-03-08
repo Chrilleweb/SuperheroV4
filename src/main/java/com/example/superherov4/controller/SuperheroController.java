@@ -39,6 +39,13 @@ public class SuperheroController {
         return new ResponseEntity<List<CityHeroDTO>>(cityHeroDTOList, HttpStatus.OK);
     }
 
+    @GetMapping(path = "city/{name}") //localhost:8082/kea/city/name
+    public ResponseEntity<CityHeroDTO> getCityByName(@PathVariable String name) {
+        CityHeroDTO cityHeroDTO = superheroService.getCityByName(name);
+
+        return new ResponseEntity<CityHeroDTO>(cityHeroDTO, HttpStatus.OK);
+    }
+
     @GetMapping(path = "superheroNRC") //localhost:8082/kea/superheroNRC
     public ResponseEntity<List<GetHeroNameDTO>> getNameRealCreation() {
         List<GetHeroNameDTO> getHeroNameDTOList = superheroService.getNameRealCreation();

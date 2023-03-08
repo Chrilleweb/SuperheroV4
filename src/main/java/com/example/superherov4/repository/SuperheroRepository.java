@@ -97,6 +97,24 @@ public class SuperheroRepository {
         }
     }
 
+    public CityHeroDTO getCityByName(String superhero) {
+        CityHeroDTO superhero1 = null;
+        try (Connection con = DriverManager.getConnection("jdbc:mysql://localhost:3306/superhelte", "superhelteDB", "1234")) {
+            String SQL = "SELECT heroName, cityName FROM superhero WHERE heroName =?;";
+            PreparedStatement pstmt = con.prepareStatement(SQL);
+            pstmt.setString(1, superhero);
+            ResultSet rs = pstmt.executeQuery();
+            if (rs.next()) {
+                String heroName = rs.getString("heroName");
+                String cityName = rs.getString("cityName");
+                superhero1 = (new CityHeroDTO(heroName, cityName));
+            }
+            return superhero1;
+        } catch (SQLException e) {
+            throw new RuntimeException(e);
+        }
+    }
+
 
 }
 
